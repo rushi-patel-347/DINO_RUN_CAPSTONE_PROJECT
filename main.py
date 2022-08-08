@@ -396,19 +396,25 @@ def eval_genomes(genomes, config):
                     remove(i) #game quit
                     flag_high_score=True
                     
-        if(flag_high_score==False and len(dinosaurs)==0):
+        if(flag_high_score==True and len(dinosaurs)==0):
             #open file
             file = open("F_High_Score.txt", "r")
             
-            high_score_in_file=file.read().strip()
+            high_score_in_file=file.read().strip() #strip() - remove space from begin and end
             
             high_score_in_file=int(high_score_in_file) #convert str to int
-            print(type(high_score_in_file))
+            print("---0--------------------------------------")
+            print(high_score_in_file)
+            #print(type(high_score_in_file))
             
             file.close()
+            print("---1--------------------------------------")
+           
             if(high_score_in_file<points):
                 #input text
                 highest_points = points  
+                print("2-----------------------------------------")
+               
                 #score_collision = points
                 #store high_score value in file            
                 #add variable value in file    
@@ -419,7 +425,7 @@ def eval_genomes(genomes, config):
             flag_high_score=False
             #flag_display_high_score=True
 
-        user_input=pygame.key.get_pressed()
+     #   user_input=pygame.key.get_pressed()
         
         
         for i, dinosaur in enumerate(dinosaurs):
